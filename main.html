@@ -1,16 +1,97 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo Classes Implementation</title>
+    <style>
+        /* ============================================================
+           1. :root pseudo-class — sets the entire page background color
+           ============================================================ */
+        :root {
+            background-color: rgb(135, 206, 235);
+        }
+
+        /* ============================================================
+           2. Article paragraph styling using pseudo-classes
+           ============================================================ */
+        article {
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* First paragraph — white text on black background */
+        article p:first-child {
+            color: white;
+            background-color: black;
+            padding: 10px;
+        }
+
+        /* Second paragraph — standard text color (default black) */
+        article p:nth-child(2) {
+            color: black;
+        }
+
+        /* Third (last) paragraph — red text */
+        article p:last-child {
+            color: red;
+        }
+
+        /* ============================================================
+           3. Unordered list styling
+           ============================================================ */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px;
+        }
+
+        /* All list items: gray background, 50% width, 10px padding */
+        ul li {
+            background-color: gray;
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Every odd item: white background */
+        ul li:nth-child(odd) {
+            background-color: white;
+        }
+
+        /* First and last items: font size 22px */
+        ul li:first-child,
+        ul li:last-child {
+            font-size: 22px;
+        }
+
+        /* Third-to-last item: pink background
+           For a list of 5 items, the third-to-last is item 3.
+           Using :nth-last-child(3) makes it dynamic. */
+        ul li:nth-last-child(3) {
+            background-color: pink;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
 
+    <!-- Article with three paragraphs -->
+    <article>
+        <p>This is the first paragraph. It has white text on a black background using :first-child.</p>
+        <p>This is the second paragraph. It uses the standard text color via :nth-child(2).</p>
+        <p>This is the third paragraph. It has red text using :last-child.</p>
+    </article>
+
+    <!-- Unordered list with 5 items -->
+    <ul>
+        <li>List item 1 (first — font 22px, odd → white background)</li>
+        <li>List item 2 (even → gray background)</li>
+        <li>List item 3 (third-to-last → pink background)</li>
+        <li>List item 4 (even → gray background)</li>
+        <li>List item 5 (last — font 22px, odd → white background)</li>
+    </ul>
+
+  
 </body>
-
 </html>
